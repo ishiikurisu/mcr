@@ -10,8 +10,8 @@ car.construct = function()
 
   -- changed state
   self.speed = 0
-  self.rotSpeed = util.pi / 3
-  self.accelaration = 10
+  self.rotSpeed =math.pi / 3
+  self.acceleration = 50
 
   return self
 end
@@ -19,9 +19,10 @@ end
 car.new = function()
   local self = car.construct()
 
-  self.accelerate = function(dt)
-    if self.speed < util.maxSpeed then
-      self.speed = self.speed + self.accelaration * dt
+  self.accelerate = function(dt, acceleration)
+    if (acceleration > 0 and self.speed < util.maxSpeed)
+    or (acceleration < 0 and self.speed > -util.maxSpeed) then
+      self.speed = self.speed + acceleration * dt
     end
   end
 
@@ -34,9 +35,7 @@ car.new = function()
   end
 
   self.decelarate = function(dt)
-    if self.speed > -util.maxSpeed then
-      self.speed = self.speed - self.accelaration * dt
-    end
+    self.speed = self.speed - util.airFriction * self.speed * dt
   end
 
   self.drive = function(dt)

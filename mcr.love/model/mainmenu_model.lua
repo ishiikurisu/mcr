@@ -5,6 +5,7 @@ mainmenu_model.construct = function()
 
   self.option = 1
   self.options = { "New game", "Quit" }
+  love.keyboard.setKeyRepeat(false)
 
   return self
 end

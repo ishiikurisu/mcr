@@ -8,6 +8,7 @@ level_controller.construct = function()
   self.model = level_model.new()
   self.view = level_view.new()
   self.actions = { }
+  love.keyboard.setKeyRepeat(true)
 
   return self
 end
@@ -17,6 +18,15 @@ level_controller.new = function()
 
   self.push = function(key)
     table.insert(self.actions, key)
+  end
+
+  self.wait = function()
+    local keys = { "up", "left", "right", "down" }
+    for _, key in pairs(keys) do
+      if love.keyboard.isDown(key) then
+        table.insert(self.actions, key)
+      end
+    end
   end
 
   self.update = function(dt)
