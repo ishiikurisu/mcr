@@ -12,5 +12,6 @@ util.palette = {
 
 -- CAR DYNAMICS
 util.maxSpeed = 50
+util.pi = 3.1415926535
 
 return util

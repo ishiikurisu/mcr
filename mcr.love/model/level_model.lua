@@ -26,9 +26,10 @@ level_model.new = function()
       elseif action == "right" then
         self.player.turnRight(dt)
       elseif action == "down" then
-        self.player.decelarete(dt)
+        self.player.decelarate(dt)
       end
     end
+    self.player.drive(dt)
     self.actions = { }
   end
 
