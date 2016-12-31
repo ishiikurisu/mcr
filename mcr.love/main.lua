@@ -2,10 +2,11 @@ start = require "controller/mainmenu_controller"
 util = require "util"
 
 function love.load()
+  love.keyboard.setKeyRepeat(true)
   current_controller = start.new()
 end
 
-function love.keyreleased(key)
+function love.keypressed(key)
   current_controller.push(key)
 end
 

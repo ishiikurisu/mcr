@@ -10,4 +10,7 @@ util.palette = {
   orange = color.new(241, 162, 8)
 }
 
+-- CAR DYNAMICS
+util.maxSpeed = 50
+
 return util

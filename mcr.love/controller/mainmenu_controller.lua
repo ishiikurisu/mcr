@@ -1,5 +1,6 @@
 local mainmenu_model = require "model/mainmenu_model"
 local mainmenu_view = require "view/mainmenu_view"
+local level_controller = require "controller/level_controller"
 local mainmenu_controller = { }
 
 mainmenu_controller.construct = function()
@@ -30,7 +31,7 @@ mainmenu_controller.new = function()
         if reaction == nil then
           love.event.quit()
         else
-          return reaction
+          return level_controller.new()
         end
       end
     end

@@ -30,7 +30,7 @@ mainmenu_model.new = function()
     if self.option == #self.options then
       return nil
     else
-      return 1
+      return true
     end
   end
 
