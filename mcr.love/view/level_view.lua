@@ -4,7 +4,7 @@ local level_view = { }
 level_view.construct = function()
     local self = { }
 
-    self.playerCar = car_entity.new('assets/player_car.png')
+    self.playerCar = car_entity.new('assets/car/player_car.bmp')
 
     return self
 end
