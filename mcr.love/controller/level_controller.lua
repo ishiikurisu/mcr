@@ -2,19 +2,19 @@ local level_model = require "model/level_model"
 local level_view = require "view/level_view"
 local level_controller = { }
 
-level_controller.construct = function()
+level_controller.construct = function(trackcode)
   local self = { }
 
-  self.model = level_model.new()
-  self.view = level_view.new()
+  self.model = level_model.new(trackcode)
+  self.view = level_view.new(trackcode)
   self.actions = { }
   love.keyboard.setKeyRepeat(true)
 
   return self
 end
 
-level_controller.new = function()
-  local self = level_controller.construct()
+level_controller.new = function(trackcode)
+  local self = level_controller.construct(trackcode)
 
   self.push = function(key)
     table.insert(self.actions, key)
@@ -47,6 +47,7 @@ level_controller.new = function()
   end
 
   self.draw = function()
+    self.view.drawTrack()
     self.view.drawCar(self.model.player)
   end
 

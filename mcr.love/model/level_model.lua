@@ -1,17 +1,19 @@
 local car_entity = require "model/entity/car"
+local track_entity = require "model/entity/track"
 local level_model = { }
 
-level_model.construct = function()
+level_model.construct = function(track)
   local self = { }
 
   self.player = car_entity.new()
+  self.track = track_entity.new(track)
   self.actions = { }
 
   return self
 end
 
-level_model.new = function()
-  local self = level_model.construct()
+level_model.new = function(track)
+  local self = level_model.construct(track)
 
   self.push = function(action)
     table.insert(self.actions, action)

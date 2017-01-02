@@ -14,4 +14,12 @@ util.palette = {
 util.maxSpeed = 120
 util.airFriction = 5/10
 
+-- TRACK STUFF
+util.loadTrack = function(code)
+    local filename = 'assets/track/' .. code .. '.bit.bmp'
+    local image = love.graphics.newImage(filename)
+    local bitmap = image:getData()
+    return bitmap
+end
+
 return util

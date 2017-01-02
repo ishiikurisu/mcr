@@ -31,7 +31,7 @@ mainmenu_controller.new = function()
         if reaction == nil then
           love.event.quit()
         else
-          return level_controller.new()
+          return level_controller.new('sample')
         end
       end
     end
