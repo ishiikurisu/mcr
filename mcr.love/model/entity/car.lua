@@ -4,8 +4,8 @@ car.construct = function()
   local self = { }
 
   -- described state
-  self.x = 50
-  self.y = 50
+  self.x = 200
+  self.y = 200
   self.direction = 0
 
   -- changed state
@@ -38,16 +38,16 @@ car.new = function()
     self.speed = self.speed - util.airFriction * self.speed * dt
   end
 
+  self.nextState = function(dt)
+    local dx = self.speed * math.sin(self.direction) * dt
+    local dy = self.speed * math.cos(self.direction) * dt
+    return dx, dy
+  end
+
   self.drive = function(dt)
     local dx, dy = self.nextState(dt)
     self.x = self.x + dx
     self.y = self.y + dy
-  end
-
-  self.nextState = function(dt)
-    local x = self.x + self.speed * math.sin(self.direction) * dt
-    local y = self.y + self.speed * math.cos(self.direction) * dt
-    return x, y
   end
 
   return self
