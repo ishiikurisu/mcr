@@ -16,7 +16,10 @@ car_entity.new = function(path)
 
     self.draw = function(car)
         -- TODO Add rotation to car
-        love.graphics.draw(self.image, car.x - self.width/2, car.y - self.height/2)
+        local x = car.x - self.width/2
+        local y = car.y - self.height/2
+        local r = -car.direction
+        love.graphics.draw(self.image, x, y, r)
     end
 
     return self
