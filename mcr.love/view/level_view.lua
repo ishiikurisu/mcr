@@ -1,13 +1,19 @@
+local car_entity = require "view/entity/car"
 local level_view = { }
 
+level_view.construct = function()
+    local self = { }
+
+    self.playerCar = car_entity.new('assets/player_car.png')
+
+    return self
+end
+
 level_view.new = function()
-  local self = { }
+  local self = level_view.construct()
 
   self.drawCar = function(car)
-    local color = util.palette.blue
-    local side = 8
-    love.graphics.setColor(color.r, color.g, color.b)
-    love.graphics.rectangle("fill", car.x - side/2, car.y - side/2, side, side)
+    self.playerCar.draw(car)
   end
 
   return self

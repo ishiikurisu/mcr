@@ -10,7 +10,7 @@ car.construct = function()
 
   -- changed state
   self.speed = 0
-  self.rotSpeed =math.pi / 3
+  self.rotSpeed = math.pi / 3
   self.acceleration = 50
 
   return self
