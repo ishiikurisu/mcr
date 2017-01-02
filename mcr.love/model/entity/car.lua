@@ -39,8 +39,15 @@ car.new = function()
   end
 
   self.drive = function(dt)
-    self.x = self.x + self.speed * math.sin(self.direction) * dt
-    self.y = self.y + self.speed * math.cos(self.direction) * dt
+    local dx, dy = self.nextState(dt)
+    self.x = self.x + dx
+    self.y = self.y + dy
+  end
+
+  self.nextState = function(dt)
+    local x = self.x + self.speed * math.sin(self.direction) * dt
+    local y = self.y + self.speed * math.cos(self.direction) * dt
+    return x, y
   end
 
   return self

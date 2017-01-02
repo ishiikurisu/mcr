@@ -18,7 +18,10 @@ util.airFriction = 5/10
 util.loadTrack = function(code)
     local filename = 'assets/track/' .. code .. '.bit.bmp'
     local image = love.graphics.newImage(filename)
-    local bitmap = image:getData()
+    local rawdata = image:getData()
+
+    -- TODO Load bits of image
+
     return bitmap
 end
 
