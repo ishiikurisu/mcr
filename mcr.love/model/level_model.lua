@@ -39,6 +39,10 @@ level_model.new = function(track)
 
     -- AUTOMATIC CHANGES
     self.player.decelarate(dt)
+    if self.track.willCollide(self.player, dt) then
+      -- TODO Apply physics of collisions here
+      self.player.speed = 0
+    end
     self.player.drive(dt)
     self.actions = { }
   end
